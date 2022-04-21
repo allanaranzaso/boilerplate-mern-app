@@ -34,6 +34,9 @@ client/node_modules
 node_modules/
 jspm_packages/
 
+# React production
+/build
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
