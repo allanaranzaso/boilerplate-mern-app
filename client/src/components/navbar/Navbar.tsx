@@ -1,29 +1,62 @@
+import { Disclosure } from "@headlessui/react";
+import { NavbarDrawer } from "./NavbarDrawer";
+import { NavbarLogo } from "./NavbarLogo";
+import NavbarMobileDropdown from "./NavbarMobileDropdown";
+import NavbarMobileMenuButton from "./NavbarMobileMenuButton";
+import NavbarNotifications from "./NavbarNotifications";
+import NavbarProfileMenu from "./NavbarProfileMenu";
+
+// array of navigation links to utilize in the components
+export const navigation = [
+    { name: 'Dashboard', href: '/', current: true },
+    { name: 'Team', href:'/', current: false },
+    { name: 'Projects', href:'/', current: false}
+]
+
+/**
+ * 
+ * @param classes 
+ * @returns 
+ */
+export function classNames(...classes: Array<String>) {
+    return classes.filter(Boolean).join(' ')
+}
+
 
 const Navbar = () => {
     return(
-        <>
-        <header className="m-0 p-0 top-0 z-50 ">
-            <nav className={`fixed w-full transition-all z-50 clear-both mx-auto lg:px-8 h-12 `}>
-                    <div className="relative">
-                        <div className="absolute inset-y-0 flex flex-wrap md:flex-nowrap w-full h-12">
-                            
-                            {/* Menu bar that will be hidden or be shown to the user
-                                    dependent on the state of toggle */}
-                            <div className={"md:hidden w-full m-auto flex justify-end h-12"}>
-                                {/* <NavDrawer /> */}
+        // Disclosures are a simple, accessible foundation for building custom UIs that show and hide content
+        // in this case, it's used to show the navbar when mobile. "as" property injects into dom for semantics
+        <header>
+            {/* Change bg of entire navbar here */}
+            <Disclosure as="nav" className="bg-gray-800"> 
+                {({ open: mobileMenuIsOpen }) => (
+
+                    <>
+                    <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                        <div className="relative flex items-center justify-between h-16">
+                            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                                {/* Profile pic & dropdown menu */}
+                                <NavbarProfileMenu />
+                                <NavbarNotifications />
                             </div>
-                            
-                            <div className={"text-center text-lg font-extralight lg:w-11/12 w-full"}>
-                                {/* <NavListItems /> */}
-                                <ul>
-                                    <li>Test</li>
-                                </ul>
+
+                            {/* Logo and list items for website */}
+                            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                                <NavbarLogo />
+                                <NavbarDrawer />
                             </div>
+
+                            <NavbarMobileMenuButton isOpen={mobileMenuIsOpen} />
+
                         </div>
                     </div>
-            </nav>
+                    <NavbarMobileDropdown />
+                    </>
+
+                )}
+            </Disclosure>
         </header>
-        </>
     );
 }
 
