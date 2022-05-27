@@ -1,7 +1,16 @@
+import {Link} from "react-router-dom";
 
 const FooterCopyright = () => {
+    const style = 'text-sm text-gray-500 sm:text-center dark:text-gray-400';
+    const linkStyle = 'hover:underline';
+
     return(
-        <p>Copyright &copy; 2022 - All Rights Reserved by Allan Aranzaso</p>
+        <>
+            <span className={style}>
+                &copy; 2022 <Link to='/' className={linkStyle}> Company</Link>
+                . All Rights Reserved.
+            </span>
+        </>
     );
 }
 

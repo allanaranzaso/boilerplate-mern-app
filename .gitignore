@@ -108,3 +108,9 @@ dist
 
 # misc
 .DS_STORE
+/.idea/.gitignore
+/.idea/boilerplate-mern-app.iml
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml
