@@ -1,12 +1,14 @@
+import FooterSiteMapList from "./FooterSiteMapList";
+
 
 const FooterSiteMap = () => {
+
+    const footerStyle = 'grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3'
     return(
         <>
-        <ul>
-            <li>One</li>
-            <li>Two</li>
-            <li>Three</li>
-        </ul>
+        <section className={footerStyle}>
+            <FooterSiteMapList />
+        </section>
         </>
     );
 }
