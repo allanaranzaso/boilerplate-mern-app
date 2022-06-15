@@ -7,7 +7,7 @@ The following is included in this template repo:
   * Also has TypeScript set up
 * MongoDB (to be added)
 
-Because I'm too cheap to pay to deploy this app, please do the following to see the app run locally!
+
 1. Clone this repo
 2. cd into the /api folder
 3. Run `npm run start`
