@@ -6,10 +6,10 @@ import Routing from './components/routes/Routing';
 
 function App() {
   return (
-    <div className="mx-auto min-h-screen">
+    <div className="mx-auto min-h-screen container">
       <Navbar />
       <Routing />
-      
+
       <Footer />
     </div>
   );

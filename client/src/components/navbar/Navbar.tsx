@@ -9,14 +9,14 @@ import NavbarProfileMenu from "./NavbarProfileMenu";
 // array of navigation links to utilize in the components
 export const navigation = [
     { name: 'Dashboard', href: '/', current: true },
-    { name: 'Team', href:'/', current: false },
+    { name: 'Team', href:'team', current: false },
     { name: 'Projects', href:'/', current: false}
 ]
 
 /**
- * 
- * @param classes 
- * @returns 
+ *
+ * @param classes
+ * @returns
  */
 export function classNames(...classes: Array<String>) {
     return classes.filter(Boolean).join(' ')
@@ -24,18 +24,19 @@ export function classNames(...classes: Array<String>) {
 
 
 const Navbar = () => {
+
     return(
         // Disclosures are a simple, accessible foundation for building custom UIs that show and hide content
         // in this case, it's used to show the navbar when mobile. "as" property injects into dom for semantics
         <header>
             {/* Change bg of entire navbar here */}
-            <Disclosure as="nav" className="bg-gray-800"> 
+            <Disclosure as="nav" className="bg-gray-800">
                 {({ open: mobileMenuIsOpen }) => (
 
                     <>
                     <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                         <div className="relative flex items-center justify-between h-16">
-                            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                            <div className="absolute inset-y-0 sm:right-0 flex items-center">
                                 {/* Profile pic & dropdown menu */}
                                 <NavbarProfileMenu />
                                 <NavbarNotifications />
